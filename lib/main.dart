@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:spotify/core/share_prefs/share_prefs.dart';
 import 'package:spotify/routes/main.dart';
 import 'package:spotify/themes/color/app_colors.dart';
 
-void main() {
+void main() => mainCommon();
+
+void mainCommon() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SharedPrefs().init();
+  await dotenv.load();
   runApp(
     const ProviderScope(
       child: MyApp(),

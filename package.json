@@ -1,0 +1,18 @@
+{
+    "name": "spotify_flutter",
+    "version": "1.0.0",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "get": "flutter pub get",
+        "clean": "flutter clean",
+        "build": "flutter clean && flutter build appbundle --no-tree-shake-icons && flutter build ipa --export-method ad-hoc",
+        "build-ipa": "flutter build ipa --export-method ad-hoc",
+        "build-apk": "flutter build apk --no-tree-shake-icons",
+        "build-appbundle": "flutter build appbundle --no-tree-shake-icons",
+        "watch-build_runner": "dart run build_runner watch -d",
+        "build-build_runner": "dart run build_runner build -d",
+        "pod-install": "cd ios && pod install && cd ..",
+        "pod-rm-install": "cd ios && rm Podfile.lock && pod install && cd .."
+    }
+}

@@ -32,12 +32,8 @@ class HomeScreen extends HookConsumerWidget {
     switch (currentIndex) {
       case 0:
         return const PlayListScreen();
-      case 1:
-        return const Center(child: Text('Empty Screen'));
-      case 2:
-        return const Center(child: Text('Empty Screen'));
       default:
-        return const LibraryScreen();
+        return const Center(child: Text('Empty Screen'));
     }
   }
 }
