@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spotify/themes/color/color.dart';
 
 class AppColorScheme extends ColorScheme {
   const AppColorScheme({
@@ -17,6 +16,6 @@ class AppColorScheme extends ColorScheme {
     super.onSurfaceVariant = Colors.white,
     super.onTertiary = Colors.white,
     super.secondary = Colors.white,
-    super.surface = AppColor.surface,
+    super.surface = Colors.black,
   }) : super();
 }

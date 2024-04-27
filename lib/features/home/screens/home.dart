@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:spotify/features/_export.dart';
 import 'package:spotify/themes/color/color.dart';
 
 class HomeScreen extends HookConsumerWidget {
@@ -30,13 +31,13 @@ class HomeScreen extends HookConsumerWidget {
   Widget _buildBody(currentIndex) {
     switch (currentIndex) {
       case 0:
-        return const Center(child: Text('Home'));
+        return const PlayListScreen();
       case 1:
-        return const Center(child: Text('Search'));
+        return const Center(child: Text('Empty Screen'));
       case 2:
-        return const Center(child: Text('Account'));
+        return const Center(child: Text('Empty Screen'));
       default:
-        return const Center(child: Text('Default'));
+        return const LibraryScreen();
     }
   }
 }
