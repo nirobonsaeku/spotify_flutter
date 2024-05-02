@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:spotify/core/_export.dart';
+import 'package:spotify/core/share_prefs/share_prefs.dart';
 
 part 'network.g.dart';
 
@@ -13,24 +14,25 @@ NetworkManager networkManager(NetworkManagerRef ref) {
 class NetworkManager {
   final Dio _dio;
   NetworkManager(this._dio);
-
   Future<T> get<T>(
     String path, {
     Object? data,
+    Function? fromJson,
   }) async {
     try {
-      debugPrint("path $path");
-      // String accessToken = SharedPrefs().getToken;
-      String accessToken = "BQDBKJ5eo5jxbtpWjVOj7ryS84khybFpP_lTqzV7uV-T_m0cTfwvdn5BnBSKPxKgEb11";
-      _dio.options.headers['Authorization'] = 'Bearer $accessToken';
       debugPrint("data $data");
+      String accessToken = SharedPrefs().getToken;
+
+      _dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
       final response = await _dio.get(
         path,
-        data: data,
+        // data: data,
       );
-      return response.data;
-    } catch (e) {
-      debugPrint("e playlist${e.toString()}");
+      debugPrint("response LLL ${response.data}");
+      return fromJson != null ? fromJson(response.data) : response.data;
+    } catch (e, track) {
+      debugPrint("e playlist $track");
       rethrow;
     }
   }

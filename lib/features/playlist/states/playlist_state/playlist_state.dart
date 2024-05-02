@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:spotify/core/repositories/playlist/playlist_repo.dart';
 import 'package:spotify/features/playlist/models/_export.dart';
@@ -10,9 +11,16 @@ class PlayListState extends _$PlayListState {
 
   @override
   FutureOr<IResPlayList> build() async {
-    final IResPlayList response = await ref.read(playlistDatasourceProvider).getPlaylist(
-          IReqPlayList(offset: _page),
-        );
-    return response;
+    try {
+      final response = await ref.watch(playlistDatasourceProvider).getPlaylist(
+            IReqPlayList(offset: _page),
+          );
+      debugPrint("response kk $response");
+
+      return response;
+    } catch (err) {
+      debugPrint("err kk $err");
+      rethrow;
+    }
   }
 }

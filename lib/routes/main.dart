@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:spotify/features/_export.dart';
 import 'package:spotify/features/home/screens/home.dart';
 
 final routes = GoRouter(
@@ -10,9 +11,11 @@ final routes = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      name: 'page2',
-      path: '/page2',
-      builder: (context, state) => const HomeScreen(),
+      name: 'playlist-detail',
+      path: '/playlist-detail/:id',
+      builder: (context, state) => PlayListDetailScreen(
+        id: state.pathParameters['id'],
+      ),
     ),
   ],
 );

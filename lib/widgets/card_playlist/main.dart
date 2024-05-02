@@ -8,12 +8,14 @@ class CardPlaylist extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    required this.imageUrl,
     this.onTap,
   });
 
   final String title;
   final String description;
   final VoidCallback? onTap;
+  final String imageUrl;
 
   @override
   Widget build(
@@ -30,7 +32,7 @@ class CardPlaylist extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CacheImage(
-                  imageUrl: "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
+                  imageUrl: imageUrl,
                   width: width / 5,
                   height: width / 5,
                 ),

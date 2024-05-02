@@ -24,6 +24,7 @@ class PlaylistDatasourceImpl implements PlaylistDatasource {
     return networkManager.get(
       '$baseUrl/me/playlists',
       data: payload,
+      fromJson: IResPlayList.fromJson,
     );
   }
 }
