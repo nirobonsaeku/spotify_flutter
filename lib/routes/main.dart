@@ -9,13 +9,20 @@ final routes = GoRouter(
       name: 'home',
       path: '/',
       builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      name: 'playlist-detail',
-      path: '/playlist-detail/:id',
-      builder: (context, state) => PlayListDetailScreen(
-        id: state.pathParameters['id'],
-      ),
+      routes: [
+        GoRoute(
+          name: 'playlist-detail',
+          path: 'playlist-detail/:id',
+          builder: (context, state) => PlayListDetailScreen(
+            id: state.pathParameters['id'],
+          ),
+        ),
+        GoRoute(
+          name: 'search-playlist',
+          path: 'search-playlist',
+          builder: (context, state) => const SearchPlayListScreen(),
+        ),
+      ],
     ),
   ],
 );

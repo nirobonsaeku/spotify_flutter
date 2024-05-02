@@ -18,7 +18,9 @@ class PlayListScreen extends ConsumerWidget {
         title: "My Playlist",
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.push("/search-playlist");
+            },
             icon: const Icon(Icons.search),
           ),
         ],
