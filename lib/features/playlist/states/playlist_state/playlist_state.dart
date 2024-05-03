@@ -7,14 +7,10 @@ part 'playlist_state.g.dart';
 
 @riverpod
 class PlayListState extends _$PlayListState {
-  final int _page = 0;
-
   @override
   FutureOr<IResPlayList> build() async {
     try {
-      final response = await ref.watch(playlistDatasourceProvider).getPlaylist(
-            IReqPlayList(offset: _page),
-          );
+      final response = await ref.watch(playlistDatasourceProvider).getPlaylist();
       debugPrint("response kk $response");
 
       return response;

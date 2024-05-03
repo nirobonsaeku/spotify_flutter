@@ -27,7 +27,7 @@ class NetworkManager {
 
       final response = await _dio.get(
         path,
-        // data: data,
+        data: data,
       );
       debugPrint("response LLL ${response.data}");
       return fromJson != null ? fromJson(response.data) : response.data;

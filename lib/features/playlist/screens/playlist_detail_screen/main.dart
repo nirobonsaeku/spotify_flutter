@@ -9,12 +9,13 @@ class PlayListDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+    debugPrint("id $id");
+    return Scaffold(
       appBar: AppMainAppBar(
-        title: "Playlist",
+        title: "Playlist $id",
         hasBack: true,
       ),
-      body: SingleChildScrollView(),
+      body: const SingleChildScrollView(),
     );
   }
 }

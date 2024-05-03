@@ -11,7 +11,8 @@ PlaylistDatasource playlistDatasource(PlaylistDatasourceRef ref) {
 }
 
 abstract class PlaylistDatasource {
-  Future<IResPlayList> getPlaylist(IReqPlayList payload);
+  Future<IResPlayList> getPlaylist();
+  Future<IResPlayList> getPlaylistById(String id);
 }
 
 class PlaylistDatasourceImpl implements PlaylistDatasource {
@@ -20,10 +21,17 @@ class PlaylistDatasourceImpl implements PlaylistDatasource {
   final baseUrl = dotenv.get("END_POINT");
 
   @override
-  Future<IResPlayList> getPlaylist(payload) {
+  Future<IResPlayList> getPlaylist() {
     return networkManager.get(
       '$baseUrl/me/playlists',
-      data: payload,
+      fromJson: IResPlayList.fromJson,
+    );
+  }
+
+  @override
+  Future<IResPlayList> getPlaylistById(String id) {
+    return networkManager.get(
+      '$baseUrl/me/playlists',
       fromJson: IResPlayList.fromJson,
     );
   }
